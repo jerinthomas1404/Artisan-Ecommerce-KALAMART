@@ -1,0 +1,21 @@
+<% include partials/header %>
+<div class="container" style="margin:100px">
+    <div class="row">
+        <div class="formStyle">
+            <h2 class="formTitle">Login to your Account</h2>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-block btn-primary" type="submit" value="Login">
+                </div>
+            </form>
+            <p class="caption"><a href="/register">Don't have an Account? Create a new one!</a></p>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>

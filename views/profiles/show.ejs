@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+
+<div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <a href="shop.html">Profiles</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><%= profile.username %></strong></div>
+        </div>
+      </div>
+    </div>  
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="item-entry" style="position: relative; bottom: 20%;">
+              <a href="#" class="profile-item md-height d-block">
+                <img src="<%= profile.imageUrl %>" alt="Image" class="img-fluid">
+              </a>
+              
+            </div>
+
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-black"><%= profile.username %></h2>
+            <p><%= profile.description %></p>
+          </div>
+        </div>
+        <div class="card text-black bg-light mb-3" style="bottom: 10%;">
+                <div class="card-header">
+                    <h4>
+                        Reviews
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <% profile.reviews.forEach(function(review) { %>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <strong><%= review.author.username %></strong>
+                                <span class="float-right"><%= review.created.toDateString() %></span>
+                                <p>
+                                    <div>
+                                        <%= review.text %>
+                                        <% if(currentUser && review.author.id.equals(currentUser._id)) { %>
+                                            <div class="float-right">
+                                                <a class="btn btn-md btn-warning" href="/profiles/<%= profile._id %>/reviews/<%= review._id %>/edit">Edit</a>
+                                                <form action="/profiles/<%= profile._id %>/reviews/<%= review._id %>?_method=DELETE" class="inline-block" method="POST">
+                                                    <button class="btn btn-md btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+      </div>
+    </div>
+    </div>
+    
+<% include ../partials/footer %>

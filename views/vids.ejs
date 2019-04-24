@@ -1,0 +1,437 @@
+<% include partials/header %>
+<br><br>
+<script>
+    .jumbotron {
+    color: transparent;
+    background-color: white;
+}
+
+.exam-and-entry {
+    position: relative;
+    z-index: 1;
+}
+
+.exam-and-entry .nav-tabs {
+    border-bottom: none;
+    margin-bottom: 50px;
+}
+
+.nav-item a#tab--1,
+.nav-item a#tab--2,
+.nav-item a#tab--3,
+.nav-item a#tab--4 {
+    text-align: center;
+    width: 200px
+}
+
+.exam-and-entry .nav-tabs .nav-link {
+    background: #0f0c29;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    margin: 0 2px;
+    border-radius: 0;
+    border: none;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .exam-and-entry .nav-tabs .nav-link {
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .exam-and-entry .nav-tabs .nav-link {
+        padding: 0 10px;
+    }
+}
+
+.exam-and-entry .nav-tabs .nav-link.active {
+    background: #f5f7fa;
+    color: #141414;
+}
+
+.exam-and-entry .tab-content h6 {
+    font-size: 18px;
+}
+
+.section-below {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+    background-color: #eef3f6;
+}
+
+.section-below .popular-course-content {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 54%;
+    flex: 0 0 54%;
+    max-width: 54%;
+    width: 54%;
+    padding: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+    .section-below .popular-course-content {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.section-below .popular-course-content h5 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.section-below .popular-course-content span {
+    font-size: 12px;
+    color: #61ba6d;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.section-below .popular-course-content .course-ratings {
+    font-size: 10px;
+    color: #fbb710;
+    margin-bottom: 30px;
+}
+
+.section-below .popular-course-content .course-ratings .fa-star-o {
+    color: #e0e3e4;
+}
+
+.section-below .popular-course-thumb {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 46%;
+    flex: 0 0 46%;
+    max-width: 46%;
+    width: 46%;
+    height: 350px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .section-below .popular-course-thumb {
+        height: 420px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .section-below .popular-course-thumb {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .section-below .popular-course-thumb {
+        height: 250px;
+    }
+}
+
+.blog-section .section-below {
+    margin-bottom: 0;
+}
+
+.blog-section .section-below .popular-course-content {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 570px;
+    flex: 0 0 570px;
+    max-width: 570px;
+    width: 570px;
+    padding: 30px;
+    margin-left: auto;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .blog-section .section-below .popular-course-content {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 465px;
+        flex: 0 0 465px;
+        max-width: 465px;
+        width: 465px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .blog-section .section-below .popular-course-content {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 370px;
+        flex: 0 0 370px;
+        max-width: 370px;
+        width: 370px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .blog-section .section-below .popular-course-content {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.blog-section .section-below .popular-course-content h5 {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-left: -2px;
+}
+
+.blog-section .section-below .popular-course-content span {
+    font-size: 14px;
+    color: #61ba6d;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.blog-section .section-below .popular-course-content .course-ratings {
+    font-size: 10px;
+    color: #fbb710;
+    margin-bottom: 30px;
+}
+
+.blog-section .section-below .popular-course-content .course-ratings .fa-star-o {
+    color: #e0e3e4;
+}
+
+.blog-section .section-below .popular-course-thumb {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    width: 50%;
+    height: 620px;
+}
+
+@media only screen and (max-width: 767px) {
+    .blog-section .section-below .popular-course-thumb {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+        height: 400px;
+    }
+}
+
+/* Shrink */
+.hvr-shrink {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.hvr-shrink:hover,
+.hvr-shrink:focus,
+.hvr-shrink:active {
+    cursor: pointer;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.hvr-glow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+}
+
+.hvr-glow:hover,
+.hvr-glow:focus,
+.hvr-glow:active {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+.card:hover {
+    background: #6190E8;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A7BFE8, #6190E8);
+    font-weight: 500;
+    border-width: 1.5px;
+    border-color: #000C40;
+    cursor: pointer;
+}
+
+.campus p {
+    color: black;
+    font-size: 20px;
+    text-align: left;
+}
+
+#camp {
+    opacity: 0.8;
+    font-size: auto;
+    background-color: transparent;
+}
+
+#camp:hover {
+    opacity: 1;
+}
+
+#topper img {
+    border: solid;
+    border-color: #a3a3a3;
+    border-width: 1px;
+    margin-top: 40px;
+}
+
+#topper1 p,
+#topper2 p,
+#topper3 p,
+#topper4 p,
+#topper5 p {
+    color: #383838;
+}
+
+#topper_row1,
+#topper_row2,
+#topper_row3,
+#topper_row4,
+#topper_row5 {
+    font-size: 23px;
+}
+
+#topper1,
+#topper2,
+#topper3,
+#topper4,
+#topper5 {
+
+    border: solid;
+    border-width: 1px;
+    border-color: #9e9e9e;
+    border-radius: 7px;
+}
+#more, #more1, #more2,#more3,#more4 {display: none;}
+
+</script>
+<section class="elements-area mt-50 section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="">
+                    <div class="exam-and-entry">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">Pottery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Handlooms</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab1" aria-selected="false">Paintings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tab--4" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab1" aria-selected="false">Crafts</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content mb-100" id="myTabContent">
+                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                                <div class="academy-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="academy-tab-text"><br>
+                                        <h3>Pottery</h3>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                <iframe width="640" height="564" src="https://player.vimeo.com/video/327464706" frameborder="0" allowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+                                            </div>
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                
+                                            </div>
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                                <div class="academy-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="academy-tab-text"><br>
+                                        <h3>Handlooms</h3>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                <iframe width="640" height="564" src="https://player.vimeo.com/video/327465135" frameborder="0" allowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+                                            </div>
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                
+                                            </div>
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="tab3" role="tabpanel" aria-labelledby="tab--3">
+                                <div class="academy-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="academy-tab-text"><br>
+                                        <h3>Paintings</h3>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                <iframe width="640" height="564" src="https://player.vimeo.com/video/327476131" frameborder="0" allowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+                                            </div>
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                
+                                            </div>
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="tab4" role="tabpanel" aria-labelledby="tab--4">
+                                <div class="academy-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="academy-tab-text"><br>
+                                        <h3>Crafts</h3>
+                                        <div class="row">
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                <iframe width="640" height="564" src="https://player.vimeo.com/video/327477239" frameborder="0" allowFullScreen mozallowfullscreen webkitAllowFullScreen></iframe>
+                                            </div>
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                
+                                            </div>
+                                            <div class="col-12 col-lg-6 hvr-shrink">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        </div>
+    </section>
+
+
+
+<% include partials/footer %>

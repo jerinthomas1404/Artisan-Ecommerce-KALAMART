@@ -1,0 +1,100 @@
+<% include ../partials/header %>
+
+<div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <a href="/products">Shop</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><%= items.product.title %></strong></div>
+        </div>
+      </div>
+    </div>  
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="item-entry" style="position: relative; bottom: 20%;">
+              <a href="#" class="product-item md-height d-block">
+                <img src="<%= items.product.imageUrl %>" alt="Image" class="img-fluid">
+              </a>
+              
+            </div>
+
+          </div>
+          
+          <div class="col-md-6">
+            <form action="/cart" method="POST" >
+            <h2 class="text-black"><%= items.product.title %></h2>
+            <p><%= items.product.description %></p>
+            <p><strong class="text-primary h4">₹ <%= items.product.price %></strong></p>
+            <div class="mb-5">
+              <div class="input-group mb-3" style="max-width: 120px;">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+              </div>
+              <input type="text" class="form-control text-center" value="1" name="quantity" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+              <div class="input-group-append">
+                <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+              </div>
+            </div>
+
+            </div>
+            <p>
+              
+            <input type="hidden" name ="id" value=<%= items.product._id%>>
+            
+            <button class="btn btn-md btn-danger">Add to CART</button>
+            </p>
+            </form>
+          </div>
+        </div>
+        <div class="card text-black bg-light mb-3" style="bottom: 10%;">
+                <div class="card-header">
+                    <h4>
+                        Reviews
+                        <a class="btn btn-success float-right" href="/products/<%= items.product._id %>/reviews/new">Add a New Review</a>
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <% items.product.reviews.forEach(function(review) { %>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <strong><%= review.author.username %>  ★<%= review.rating%>/5</strong>
+                                <span class="float-right"><%= review.created.toDateString() %></span>
+                                <p>
+                                    <div>
+                                        <%= review.text %>
+                                        <% if(currentUser && review.author.id.equals(currentUser._id)) { %>
+                                            <div class="float-right">
+                                                <a class="btn btn-md btn-warning" href="/products/<%= items.product._id %>/reviews/<%= review._id %>/edit">Edit</a>
+                                                <form action="/products/<%= items.product._id %>/reviews/<%= review._id %>?_method=DELETE" class="inline-block" method="POST">
+                                                    
+                                                    <button class="btn btn-md btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+      </div>
+    </div>
+    </div>
+    
+    <!--new-->
+    <div class="row mb-5">
+      	    <% items.categ.forEach(function(product) { %>
+          		<div class="col-lg-4 col-md-6 item-entry mb-4 <%= product.category %>">
+                <a href="#" class="product-item md-height d-block">
+                  <img style="height:100%; width:100%;" src="<%= product.imageUrl %>" alt="Image" class="img-fluid">
+                </a>
+                <h2 class="item-title"><a href="/products/<%= product._id%>"><%= product.title %></a></h2>
+                <strong class="item-price">₹<%= product.price %></strong>
+                
+              </div>
+      	    <% }); %>
+    </div>
+    <!--new ends-->
+    
+<% include ../partials/footer %>

@@ -1,0 +1,163 @@
+<% include ../partials/header %>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1); 
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+<div class="custom-border-bottom py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="site-section">
+      <div class="container">
+
+        <div class="row mb-5">
+          <div class="col-md-12 order-1">
+
+            <div class="row align">
+              <div class="col-md-12 mb-5">
+                <div class="float-md-left"><h2 class="text-black h5">Shop All</h2></div>
+                <div class="d-flex">
+                  <div class="dropdown mr-1 ml-md-auto">
+                    <button type="button" class="btn btn-white btn-sm dropdown-toggle px-4" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Categories
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset" id="myBtnContainer">
+                      <button class="dropdown-item btn" onclick="filterSelection('sarees')" id="sarees">Sarees</button>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item btn" id="jewellery">Jewellery</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item btn" id="painting">Paintings</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item btn" id="teaset">Tea Sets</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item btn" id="shawls">Shawls</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item btn" id="home">Home &amp; Living</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-5">
+      	    <% products.forEach(function(product) { %>
+          		<div class="col-lg-4 col-md-6 item-entry mb-4 <%= product.category %>">
+                <a href="#" class="product-item md-height d-block">
+                  <img style="height:100%; width:100%;" src="<%= product.imageUrl %>" alt="Image" class="img-fluid">
+                </a>
+                <h2 class="item-title"><a href="#"><%= product.title %></a></h2>
+                <strong class="item-
+                price">₹<%= product.price %></strong>
+                <p class="caption">
+        					    <p>Created by <%= product.author.username %></p>
+        					    <a href="/products/<%= product._id %>" class="btn btn-primary">More Info</a>
+        					</p>
+              </div>
+      	    <% }); %>
+          </div>
+
+        <!--  <div class="col-md-3 order-2 mb-5 mb-md-0">-->
+        <!--    <div class="border p-4 rounded mb-4">-->
+        <!--      <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>-->
+        <!--      <ul class="list-unstyled mb-0">-->
+        <!--        <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>-->
+        <!--        <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>-->
+        <!--        <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>-->
+        <!--      </ul>-->
+        <!--    </div>-->
+
+        <!--    <div class="border p-4 rounded mb-4">-->
+        <!--      <div class="mb-4">-->
+        <!--        <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>-->
+        <!--        <div id="slider-range" class="border-primary"></div>-->
+        <!--        <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />-->
+        <!--      </div>-->
+
+        <!--      <div class="mb-4">-->
+        <!--        <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>-->
+        <!--        <label for="s_sm" class="d-flex">-->
+        <!--          <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>-->
+        <!--        </label>-->
+        <!--        <label for="s_md" class="d-flex">-->
+        <!--          <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>-->
+        <!--        </label>-->
+        <!--        <label for="s_lg" class="d-flex">-->
+        <!--          <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>-->
+        <!--        </label>-->
+        <!--      </div>-->
+
+        <!--      <div class="mb-4">-->
+        <!--        <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>-->
+        <!--        <a href="#" class="d-flex color-item align-items-center" >-->
+        <!--          <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>-->
+        <!--        </a>-->
+        <!--        <a href="#" class="d-flex color-item align-items-center" >-->
+        <!--          <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>-->
+        <!--        </a>-->
+        <!--        <a href="#" class="d-flex color-item align-items-center" >-->
+        <!--          <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>-->
+        <!--        </a>-->
+        <!--        <a href="#" class="d-flex color-item align-items-center" >-->
+        <!--          <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>-->
+        <!--        </a>-->
+        <!--      </div>-->
+
+        <!--    </div>-->
+        <!--  </div>-->
+        <!--</div>-->
+
+      </div>
+    </div>
+    
+<% include ../partials/footer %>

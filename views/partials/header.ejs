@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KalaMart</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" type="text/css" href="/assets/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/owl.theme.default.min.css">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/aos.css">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+        {pageLanguage: 'en',
+         includedLanguages:'hi,mr,bn,ta,te,en'},
+        'google_translate_element'
+    );      
+}
+</script>
+
+<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div class="site-wrap">
+    
+
+    <div class="site-navbar bg-white py-2">
+
+      <div class="search-wrap">
+        <div class="container">
+          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
+          <form action="#" method="post">
+            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+          </form>  
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="logo">
+            <div class="site-logo">
+              <a href="/" class="js-logo-clone">KalaMart</a>
+            </div>
+          </div>
+          <div class="main-nav d-none d-lg-block">
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li class="has-children active">
+                  <a href="/">Home</a>
+                </li>
+                
+                <li><a href="/about">About</a></li>
+                <li><a href="/products">Shop</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <% if(!currentUser) { %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                <% } else { %>
+                    <li><a href="/">Signed in as <%= currentUser.username %></a></li>
+                    <li><a href="/profiles">Profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                <% } %>
+              </ul>
+            </nav>
+          </div>
+          <div class="icons">
+            <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+            <a href="/cart" class="icons-btn d-inline-block bag">
+              <span class="icon-shopping-bag"></span>
+            </a>
+            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span class="icon-menu"></span></a>
+          </div>
+          <div id="google_translate_element" style="color:black"></div>
+        </div>
+      </div>
+    </div>
+    <div class="search-wrap">
+        <div class="container">
+          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
+          <form action="#" method="post">
+            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+          </form>  
+        </div>
+      </div>
+     <div class="container">
+            <% if(error && error.length >0) {%>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+            <% } %>
+            <% if(success && success.length >0) {%>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+            <% } %>
+        </div>
